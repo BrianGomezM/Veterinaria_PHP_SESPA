@@ -1,0 +1,1825 @@
+
+CREATE TABLE `animal` (
+  `id_pac` int(11) NOT NULL AUTO_INCREMENT,
+  `nomb_pac` varchar(50) NOT NULL,
+  `color_pac` varchar(20) NOT NULL,
+  `peso_pac` varchar(10) NOT NULL DEFAULT '0',
+  `fecha_nac_pac` date NOT NULL,
+  `tama_o_pac` varchar(10) NOT NULL DEFAULT '',
+  `alzada_pac` varchar(25) NOT NULL,
+  `genero` varchar(10) DEFAULT NULL,
+  `id_usu` int(11) NOT NULL DEFAULT '0',
+  `id_raza` int(11) NOT NULL DEFAULT '0',
+  `fech_regist_anim` date DEFAULT NULL,
+  PRIMARY KEY (`id_pac`),
+  UNIQUE KEY `id_pac` (`id_pac`),
+  KEY `id_usu` (`id_usu`),
+  KEY `id_raza` (`id_raza`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auscultacion`
+--
+
+CREATE TABLE `auscultacion` (
+  `id_auscultacion` int(11) NOT NULL AUTO_INCREMENT,
+  `id_list_auscultacion` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  `estado_auscultacion` varchar(7) DEFAULT NULL,
+  `comentario_auscultacion` text,
+  PRIMARY KEY (`id_auscultacion`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_auscultacion` (`id_list_auscultacion`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+
+--
+-- Dumping data for table `auscultacion`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ayuda_diagnostica`
+--
+
+CREATE TABLE `ayuda_diagnostica` (
+  `id_ayuda_diagnostica` int(11) NOT NULL AUTO_INCREMENT,
+  `estado_ayuda_diagnostica` varchar(7) DEFAULT NULL,
+  `interpretacion_ayuda_diagnostica` varchar(15) DEFAULT NULL,
+  `id_list_ayuda_diagnostica` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  PRIMARY KEY (`id_ayuda_diagnostica`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_ayuda_diagnostica` (`id_list_ayuda_diagnostica`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=133 ;
+
+--
+-- Dumping data for table `ayuda_diagnostica`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `caracteristica_pulso`
+--
+
+CREATE TABLE `caracteristica_pulso` (
+  `id_caracteristica_pulso` int(11) NOT NULL AUTO_INCREMENT,
+  `id_list_caracteristica_pulso` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  `estado_caracteristica_pulso` varchar(7) DEFAULT NULL,
+  `comentario_caracteristica_pulso` text,
+  PRIMARY KEY (`id_caracteristica_pulso`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_caracteristica_pulso` (`id_list_caracteristica_pulso`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+
+--
+-- Dumping data for table `caracteristica_pulso`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `constante_fisiologica`
+--
+
+CREATE TABLE `constante_fisiologica` (
+  `id_historia_medic` int(11) NOT NULL AUTO_INCREMENT,
+  `temperatura_medic` varchar(20) NOT NULL,
+  `frecuencia_cardiaca` varchar(20) NOT NULL,
+  `pulso` varchar(20) NOT NULL,
+  `frecuenci_respira` varchar(20) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  PRIMARY KEY (`id_historia_medic`),
+  UNIQUE KEY `id_historia_medic` (`id_historia_medic`),
+  KEY `id_hist` (`id_hist`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `constante_fisiologica`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dato_medio_ambien`
+--
+
+CREATE TABLE `dato_medio_ambien` (
+  `id_datos_medio_ambien` int(11) NOT NULL AUTO_INCREMENT,
+  `id_hist` int(11) NOT NULL DEFAULT '0',
+  `entorno_datos_medio_amb` varchar(150) NOT NULL,
+  `nutricion_datos_medio_amb` text NOT NULL,
+  `id_estilo_v` int(11) NOT NULL,
+  PRIMARY KEY (`id_datos_medio_ambien`),
+  UNIQUE KEY `id_datos_medio_ambien` (`id_datos_medio_ambien`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_estilo_v` (`id_estilo_v`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `dato_medio_ambien`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `especie`
+--
+
+CREATE TABLE `especie` (
+  `id_esp` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_esp` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_esp`),
+  UNIQUE KEY `id_esp` (`id_esp`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `especie`
+--
+
+INSERT INTO `especie` VALUES(1, 'PERRO');
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `estado_mental`
+--
+
+CREATE TABLE `estado_mental` (
+  `id_reflejo_postural` int(11) NOT NULL AUTO_INCREMENT,
+  `id_hist` int(11) NOT NULL,
+  `id_list_estado_mental` int(11) NOT NULL,
+  `estado_estado_mental` varchar(7) DEFAULT NULL,
+  `comentario_estado_mental` text,
+  `lado_estado_mental` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`id_reflejo_postural`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_estado_mental` (`id_list_estado_mental`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+
+--
+-- Dumping data for table `estado_mental`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `estilo_v`
+--
+
+CREATE TABLE `estilo_v` (
+  `id_estilo_v` int(11) NOT NULL AUTO_INCREMENT,
+  `estilo_v` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_estilo_v`),
+  UNIQUE KEY `id_estilo_v` (`id_estilo_v`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `estilo_v`
+--
+
+INSERT INTO `estilo_v` VALUES(1, 'SENDENTARIO');
+INSERT INTO `estilo_v` VALUES(2, 'ACTIVO');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `historial`
+--
+
+CREATE TABLE `historial` (
+  `id_hist` int(11) NOT NULL AUTO_INCREMENT,
+  `id_pac` int(11) NOT NULL,
+  `fecha_hist` date NOT NULL,
+  `motiv_consult_h` text,
+  `antecedente_h` text,
+  `diagnostico_presuntivo` text,
+  `diagnostico_diferencial` text,
+  `diagnostico_instaurado` text,
+  `pronostico` text,
+  `fch_ing_hist` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_hist`),
+  KEY `id_pac` (`id_pac`),
+  KEY `id_hist` (`id_hist`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+
+--
+-- Dumping data for table `historial`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hoja_seguimiento`
+--
+
+CREATE TABLE `hoja_seguimiento` (
+  `id_notas_progreso` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha_nota_progreso` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `subjetivo_nota_progreso` text NOT NULL,
+  `objetivo_nota_progreso` text NOT NULL,
+  `plan_diagnostico_nota_progreso` text NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  PRIMARY KEY (`id_notas_progreso`),
+  UNIQUE KEY `id_notas_progreso` (`id_notas_progreso`),
+  KEY `id_hist` (`id_hist`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+
+--
+-- Dumping data for table `hoja_seguimiento`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inspeccion`
+--
+
+CREATE TABLE `inspeccion` (
+  `id_inspeccion` int(11) NOT NULL AUTO_INCREMENT,
+  `estado_inspeccion` varchar(7) DEFAULT NULL,
+  `comentario_inspeccion` text,
+  `id_hist` int(11) NOT NULL,
+  `id_list_inspecc` int(11) NOT NULL,
+  PRIMARY KEY (`id_inspeccion`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_inspecc` (`id_list_inspecc`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+
+--
+-- Dumping data for table `inspeccion`
+--
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lesion`
+--
+
+CREATE TABLE `lesion` (
+  `id_lesiones` int(11) NOT NULL AUTO_INCREMENT,
+  `id_hist` int(11) NOT NULL,
+  `macula_les` varchar(2) DEFAULT NULL,
+  `papula_les` varchar(2) DEFAULT NULL,
+  `pustula_les` varchar(2) DEFAULT NULL,
+  `habon_les` varchar(2) DEFAULT NULL,
+  `vesicula_les` varchar(2) DEFAULT NULL,
+  `placa_les` varchar(2) DEFAULT NULL,
+  `nodulo_les` varchar(2) DEFAULT NULL,
+  `tumor_les` varchar(2) DEFAULT NULL,
+  `quiste_les` varchar(2) DEFAULT NULL,
+  `comedon_les` varchar(2) DEFAULT NULL,
+  `collarete_epidemico` varchar(2) DEFAULT NULL,
+  `escama` varchar(2) DEFAULT NULL,
+  `costra` varchar(2) DEFAULT NULL,
+  `excoriacion` varchar(2) DEFAULT NULL,
+  `erosion` varchar(2) DEFAULT NULL,
+  `liquenificacion` varchar(2) DEFAULT NULL,
+  `ulcera` varchar(2) DEFAULT NULL,
+  `hiperpigmentacion` varchar(2) DEFAULT NULL,
+  `hipopigmentacion` varchar(2) DEFAULT NULL,
+  `cicatriz` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`id_lesiones`),
+  UNIQUE KEY `id_lesiones` (`id_lesiones`),
+  KEY `id_hist` (`id_hist`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `lesion`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `linfonodo`
+--
+
+CREATE TABLE `linfonodo` (
+  `id_linfo` int(11) NOT NULL AUTO_INCREMENT,
+  `id_lista_linfonodo` int(11) NOT NULL DEFAULT '0',
+  `estado_lin` varchar(7) DEFAULT NULL,
+  `comentario` text,
+  `id_hist` int(11) NOT NULL,
+  PRIMARY KEY (`id_linfo`),
+  UNIQUE KEY `id_linfo` (`id_linfo`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_lista_linfonodo` (`id_lista_linfonodo`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
+
+--
+-- Dumping data for table `linfonodo`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_auscultacion`
+--
+
+CREATE TABLE `listado_auscultacion` (
+  `id_list_auscultacion` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_lauscultacion` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_auscultacion`),
+  UNIQUE KEY `id_list_auscultacion` (`id_list_auscultacion`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `listado_auscultacion`
+--
+
+INSERT INTO `listado_auscultacion` VALUES(1, 'Pulmonar');
+INSERT INTO `listado_auscultacion` VALUES(2, 'Aortica');
+INSERT INTO `listado_auscultacion` VALUES(3, 'Mitral');
+INSERT INTO `listado_auscultacion` VALUES(4, 'Tricuspide');
+INSERT INTO `listado_auscultacion` VALUES(5, 'S1');
+INSERT INTO `listado_auscultacion` VALUES(6, 'S2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_ayuda_diagnostica`
+--
+
+CREATE TABLE `listado_ayuda_diagnostica` (
+  `id_list_ayuda_diagnostica` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_ayuda_diagnostica` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_ayuda_diagnostica`),
+  UNIQUE KEY `id_list_ayuda_diagnostica` (`id_list_ayuda_diagnostica`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+
+--
+-- Dumping data for table `listado_ayuda_diagnostica`
+--
+
+INSERT INTO `listado_ayuda_diagnostica` VALUES(1, 'Cuadro Hermatico');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(2, 'Parcial de orina');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(3, 'Coprologico');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(4, 'Ecografia');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(5, 'Radiografias');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(6, 'Electrocardiograma');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(7, 'Perfil bioquimico');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(8, 'ALT');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(9, 'AST');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(10, 'BUN');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(11, 'Creatinina');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(12, 'Glucosa');
+INSERT INTO `listado_ayuda_diagnostica` VALUES(13, 'Bilirrubina');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_caracteristica_pulso`
+--
+
+CREATE TABLE `listado_caracteristica_pulso` (
+  `id_list_caracteristica_pulso` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_caracteristica_pulso` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_caracteristica_pulso`),
+  UNIQUE KEY `id_list_caracteristica_pulso` (`id_list_caracteristica_pulso`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `listado_caracteristica_pulso`
+--
+
+INSERT INTO `listado_caracteristica_pulso` VALUES(1, 'Intensidad');
+INSERT INTO `listado_caracteristica_pulso` VALUES(2, 'Frecuecia');
+INSERT INTO `listado_caracteristica_pulso` VALUES(3, 'Ritmo');
+INSERT INTO `listado_caracteristica_pulso` VALUES(4, 'Femoral');
+INSERT INTO `listado_caracteristica_pulso` VALUES(5, 'Yugular');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_estado_mental`
+--
+
+CREATE TABLE `listado_estado_mental` (
+  `id_list_estado_mental` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_estado_mental` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_estado_mental`),
+  UNIQUE KEY `id_list_estado_mental` (`id_list_estado_mental`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `listado_estado_mental`
+--
+
+INSERT INTO `listado_estado_mental` VALUES(1, 'Depresion');
+INSERT INTO `listado_estado_mental` VALUES(2, 'Estupor');
+INSERT INTO `listado_estado_mental` VALUES(3, 'Coma');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_inspeccion`
+--
+
+CREATE TABLE `listado_inspeccion` (
+  `id_list_inspecc` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_lista_inspecc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id_list_inspecc`),
+  UNIQUE KEY `id_list_inspecc` (`id_list_inspecc`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `listado_inspeccion`
+--
+
+INSERT INTO `listado_inspeccion` VALUES(1, 'POSTURA DEL ANIMAL EN ESTACION');
+INSERT INTO `listado_inspeccion` VALUES(2, 'VALORACION DE LA MARCHA');
+INSERT INTO `listado_inspeccion` VALUES(3, 'VALORACION DEL TROTE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_membrana_mucosa`
+--
+
+CREATE TABLE `listado_membrana_mucosa` (
+  `id_list_membrana_mucosa` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_membrana_mucosa` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_membrana_mucosa`),
+  UNIQUE KEY `id_list_membrana_mucosa` (`id_list_membrana_mucosa`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `listado_membrana_mucosa`
+--
+
+INSERT INTO `listado_membrana_mucosa` VALUES(1, 'Oral ');
+INSERT INTO `listado_membrana_mucosa` VALUES(2, 'Conjuntiva');
+INSERT INTO `listado_membrana_mucosa` VALUES(3, 'Vaginal o prepucial ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_organo_sentido`
+--
+
+CREATE TABLE `listado_organo_sentido` (
+  `id_list_organo_sentido` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_organo_sentido` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_organo_sentido`),
+  UNIQUE KEY `id_list_organo_sentido` (`id_list_organo_sentido`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+
+--
+-- Dumping data for table `listado_organo_sentido`
+--
+
+INSERT INTO `listado_organo_sentido` VALUES(1, 'Vision');
+INSERT INTO `listado_organo_sentido` VALUES(2, 'Parpados');
+INSERT INTO `listado_organo_sentido` VALUES(3, 'Conducto Nasolagrimal');
+INSERT INTO `listado_organo_sentido` VALUES(4, 'Esclerotica');
+INSERT INTO `listado_organo_sentido` VALUES(5, 'Cornea');
+INSERT INTO `listado_organo_sentido` VALUES(6, 'Camara anterior');
+INSERT INTO `listado_organo_sentido` VALUES(7, 'Camara posterior');
+INSERT INTO `listado_organo_sentido` VALUES(8, 'Iris');
+INSERT INTO `listado_organo_sentido` VALUES(9, 'Cristalino');
+INSERT INTO `listado_organo_sentido` VALUES(10, 'Segmento posterior');
+INSERT INTO `listado_organo_sentido` VALUES(11, 'Papila Optica');
+INSERT INTO `listado_organo_sentido` VALUES(12, 'Retina');
+INSERT INTO `listado_organo_sentido` VALUES(13, 'Oidos');
+INSERT INTO `listado_organo_sentido` VALUES(14, 'Conducto esterno');
+INSERT INTO `listado_organo_sentido` VALUES(15, 'Conducto medio');
+INSERT INTO `listado_organo_sentido` VALUES(16, 'Conducto interno');
+INSERT INTO `listado_organo_sentido` VALUES(17, 'Secreciones ');
+INSERT INTO `listado_organo_sentido` VALUES(18, 'Reflejo Otopodal');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_otro`
+--
+
+CREATE TABLE `listado_otro` (
+  `id_list_otro` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_otro` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_otro`),
+  UNIQUE KEY `id_list_otro` (`id_list_otro`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `listado_otro`
+--
+
+INSERT INTO `listado_otro` VALUES(1, 'Reflejo extensor cruzado');
+INSERT INTO `listado_otro` VALUES(2, 'Sensibilidad superficial');
+INSERT INTO `listado_otro` VALUES(3, 'Sensibilidad profunda');
+INSERT INTO `listado_otro` VALUES(4, 'Reflejo de paniculo');
+INSERT INTO `listado_otro` VALUES(5, 'Reflejos sacrales: anal');
+INSERT INTO `listado_otro` VALUES(6, 'Coccigeo');
+INSERT INTO `listado_otro` VALUES(7, 'Signo de babinski');
+INSERT INTO `listado_otro` VALUES(8, 'Reflejo de miccion');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_otro_sistema_resp`
+--
+
+CREATE TABLE `listado_otro_sistema_resp` (
+  `id_list_otro_sistema_resp` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_otro_sistema_resp` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_otro_sistema_resp`),
+  UNIQUE KEY `id_list_otro_sistema_resp` (`id_list_otro_sistema_resp`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `listado_otro_sistema_resp`
+--
+
+INSERT INTO `listado_otro_sistema_resp` VALUES(1, 'Soplos');
+INSERT INTO `listado_otro_sistema_resp` VALUES(2, 'Arritmias');
+INSERT INTO `listado_otro_sistema_resp` VALUES(3, 'Tiempo de relleno capilar');
+INSERT INTO `listado_otro_sistema_resp` VALUES(4, 'Otros');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_palpacion`
+--
+
+CREATE TABLE `listado_palpacion` (
+  `id_list_palpac` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_palpac` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_palpac`),
+  UNIQUE KEY `id_list_palpac` (`id_list_palpac`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `listado_palpacion`
+--
+
+INSERT INTO `listado_palpacion` VALUES(1, 'Extremidad toraxica');
+INSERT INTO `listado_palpacion` VALUES(2, 'Región escapulohumeral');
+INSERT INTO `listado_palpacion` VALUES(3, 'Carpo y dedos');
+INSERT INTO `listado_palpacion` VALUES(4, 'Extremidad pelviana');
+INSERT INTO `listado_palpacion` VALUES(5, 'Pelvis');
+INSERT INTO `listado_palpacion` VALUES(6, 'Rodilla');
+INSERT INTO `listado_palpacion` VALUES(7, 'Corvejón');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_par_craneal`
+--
+
+CREATE TABLE `listado_par_craneal` (
+  `id_list_par_craneal` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_par_craneal` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_par_craneal`),
+  UNIQUE KEY `id_list_par_craneal` (`id_list_par_craneal`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `listado_par_craneal`
+--
+
+INSERT INTO `listado_par_craneal` VALUES(1, 'olfatorio');
+INSERT INTO `listado_par_craneal` VALUES(2, 'Optico');
+INSERT INTO `listado_par_craneal` VALUES(3, 'Oculomotor');
+INSERT INTO `listado_par_craneal` VALUES(4, 'Troclear');
+INSERT INTO `listado_par_craneal` VALUES(5, 'Trigemino');
+INSERT INTO `listado_par_craneal` VALUES(6, 'Abducens');
+INSERT INTO `listado_par_craneal` VALUES(7, 'Facial');
+INSERT INTO `listado_par_craneal` VALUES(8, 'Vestibulococlear');
+INSERT INTO `listado_par_craneal` VALUES(9, 'Glosofaringeo');
+INSERT INTO `listado_par_craneal` VALUES(10, 'Vago');
+INSERT INTO `listado_par_craneal` VALUES(11, 'Espinal accesorio');
+INSERT INTO `listado_par_craneal` VALUES(12, 'Hipogloso');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_patron_respiratorio`
+--
+
+CREATE TABLE `listado_patron_respiratorio` (
+  `id_list_patron_respiratorio` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_patron_respiratorio` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_patron_respiratorio`),
+  UNIQUE KEY `id_list_patron_respiratorio` (`id_list_patron_respiratorio`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `listado_patron_respiratorio`
+--
+
+INSERT INTO `listado_patron_respiratorio` VALUES(1, 'Obstructivo');
+INSERT INTO `listado_patron_respiratorio` VALUES(2, 'Restrictivo');
+INSERT INTO `listado_patron_respiratorio` VALUES(3, 'Pulmonar');
+INSERT INTO `listado_patron_respiratorio` VALUES(4, 'Diverso');
+INSERT INTO `listado_patron_respiratorio` VALUES(5, 'Toraxico');
+INSERT INTO `listado_patron_respiratorio` VALUES(6, 'Abdominal');
+INSERT INTO `listado_patron_respiratorio` VALUES(7, 'Subtipo 1');
+INSERT INTO `listado_patron_respiratorio` VALUES(8, 'Subtipo 2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_prueb_especifi`
+--
+
+CREATE TABLE `listado_prueb_especifi` (
+  `id_list_prueb_especif` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_prueb_especif` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_prueb_especif`),
+  UNIQUE KEY `id_list_prueb_especif` (`id_list_prueb_especif`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `listado_prueb_especifi`
+--
+
+INSERT INTO `listado_prueb_especifi` VALUES(1, 'PRUEBA DE CAJON');
+INSERT INTO `listado_prueb_especifi` VALUES(2, 'PRUEBA DE ORTOLANI');
+INSERT INTO `listado_prueb_especifi` VALUES(3, 'OTRAS');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_reaccion_postular`
+--
+
+CREATE TABLE `listado_reaccion_postular` (
+  `id_list_reaccion_pos` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_reacc_pos` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_reaccion_pos`),
+  UNIQUE KEY `id_list_reaccion_pos` (`id_list_reaccion_pos`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `listado_reaccion_postular`
+--
+
+INSERT INTO `listado_reaccion_postular` VALUES(1, 'Posicionamiento tactil y visual ');
+INSERT INTO `listado_reaccion_postular` VALUES(2, 'Reaccion tonica del cuello');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_reflejo_espinal`
+--
+
+CREATE TABLE `listado_reflejo_espinal` (
+  `id_list_reflejo_espinal` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_reflejo_espinal` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_reflejo_espinal`),
+  UNIQUE KEY `id_list_reflejo_espinal` (`id_list_reflejo_espinal`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `listado_reflejo_espinal`
+--
+
+INSERT INTO `listado_reflejo_espinal` VALUES(1, 'Bicipital');
+INSERT INTO `listado_reflejo_espinal` VALUES(2, 'Triceps');
+INSERT INTO `listado_reflejo_espinal` VALUES(3, 'Flexor');
+INSERT INTO `listado_reflejo_espinal` VALUES(4, 'Patalear');
+INSERT INTO `listado_reflejo_espinal` VALUES(5, 'Tibia Craneal');
+INSERT INTO `listado_reflejo_espinal` VALUES(6, 'Gastronemio');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_reflejo_postural`
+--
+
+CREATE TABLE `listado_reflejo_postural` (
+  `id_list_ref_postural` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_ref_postural` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_ref_postural`),
+  UNIQUE KEY `id_list_ref_postural` (`id_list_ref_postural`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `listado_reflejo_postural`
+--
+
+INSERT INTO `listado_reflejo_postural` VALUES(1, 'Carretilla');
+INSERT INTO `listado_reflejo_postural` VALUES(2, 'Hemimarcha');
+INSERT INTO `listado_reflejo_postural` VALUES(3, 'Hemiestacion');
+INSERT INTO `listado_reflejo_postural` VALUES(4, 'Salto');
+INSERT INTO `listado_reflejo_postural` VALUES(5, 'Propiocepcion consciente');
+INSERT INTO `listado_reflejo_postural` VALUES(6, 'Propiocepcion inconsciente');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_region_precordial`
+--
+
+CREATE TABLE `listado_region_precordial` (
+  `id_list_region_precordial` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_region_precordial` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_region_precordial`),
+  UNIQUE KEY `id_list_region_precordial` (`id_list_region_precordial`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `listado_region_precordial`
+--
+
+INSERT INTO `listado_region_precordial` VALUES(1, 'Choque precordial');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_signo_digestivo`
+--
+
+CREATE TABLE `listado_signo_digestivo` (
+  `id_list_signo_digestivo` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_signo_digestivo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_signo_digestivo`),
+  UNIQUE KEY `id_list_signo_digestivo` (`id_list_signo_digestivo`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `listado_signo_digestivo`
+--
+
+INSERT INTO `listado_signo_digestivo` VALUES(1, 'Dolor a la palpacion');
+INSERT INTO `listado_signo_digestivo` VALUES(2, 'Vomito');
+INSERT INTO `listado_signo_digestivo` VALUES(3, 'Regurgitacion');
+INSERT INTO `listado_signo_digestivo` VALUES(4, 'Diarrea');
+INSERT INTO `listado_signo_digestivo` VALUES(5, 'Deshidratacion');
+INSERT INTO `listado_signo_digestivo` VALUES(6, 'Otros');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_sintoma_respiratorio`
+--
+
+CREATE TABLE `listado_sintoma_respiratorio` (
+  `id_list_sintoma_respiratorio` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_sintoma_respiratorio` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_sintoma_respiratorio`),
+  UNIQUE KEY `id_list_sintoma_respiratorio` (`id_list_sintoma_respiratorio`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Dumping data for table `listado_sintoma_respiratorio`
+--
+
+INSERT INTO `listado_sintoma_respiratorio` VALUES(1, 'Estornudo');
+INSERT INTO `listado_sintoma_respiratorio` VALUES(2, 'Tos');
+INSERT INTO `listado_sintoma_respiratorio` VALUES(3, 'Secrecion nasal');
+INSERT INTO `listado_sintoma_respiratorio` VALUES(4, 'Tumefaccion facial');
+INSERT INTO `listado_sintoma_respiratorio` VALUES(5, 'Cambio de voz');
+INSERT INTO `listado_sintoma_respiratorio` VALUES(6, 'Disnea inspiratoria');
+INSERT INTO `listado_sintoma_respiratorio` VALUES(7, 'Disnea espiratoria');
+INSERT INTO `listado_sintoma_respiratorio` VALUES(8, 'Polipnea');
+INSERT INTO `listado_sintoma_respiratorio` VALUES(9, 'Taquipnea');
+INSERT INTO `listado_sintoma_respiratorio` VALUES(10, 'Hipernea');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_sistema_digestivo`
+--
+
+CREATE TABLE `listado_sistema_digestivo` (
+  `id_list_sistema_digestivo` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_sistema_digestivo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_sistema_digestivo`),
+  UNIQUE KEY `id_list_sistema_digestivo` (`id_list_sistema_digestivo`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `listado_sistema_digestivo`
+--
+
+INSERT INTO `listado_sistema_digestivo` VALUES(1, 'Boca');
+INSERT INTO `listado_sistema_digestivo` VALUES(2, 'Lengua');
+INSERT INTO `listado_sistema_digestivo` VALUES(3, 'Dientes');
+INSERT INTO `listado_sistema_digestivo` VALUES(4, 'Faringe');
+INSERT INTO `listado_sistema_digestivo` VALUES(5, 'Esofago');
+INSERT INTO `listado_sistema_digestivo` VALUES(6, 'Estomago');
+INSERT INTO `listado_sistema_digestivo` VALUES(7, 'Intestino delgado');
+INSERT INTO `listado_sistema_digestivo` VALUES(8, 'Intestino grueso');
+INSERT INTO `listado_sistema_digestivo` VALUES(9, 'Recto ');
+INSERT INTO `listado_sistema_digestivo` VALUES(10, 'Ano');
+INSERT INTO `listado_sistema_digestivo` VALUES(11, 'Higado');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_sistema_genital_hembra`
+--
+
+CREATE TABLE `listado_sistema_genital_hembra` (
+  `id_list_sistema_genital_hembra` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_sistema_genital_hembra` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_sistema_genital_hembra`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `listado_sistema_genital_hembra`
+--
+
+INSERT INTO `listado_sistema_genital_hembra` VALUES(1, 'Vulva');
+INSERT INTO `listado_sistema_genital_hembra` VALUES(2, 'Vagina');
+INSERT INTO `listado_sistema_genital_hembra` VALUES(3, 'Utero');
+INSERT INTO `listado_sistema_genital_hembra` VALUES(4, 'Glandula Mamaria');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_sistema_genital_macho`
+--
+
+CREATE TABLE `listado_sistema_genital_macho` (
+  `id_list_sistema_genital_macho` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_sistema_genital_macho` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_sistema_genital_macho`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `listado_sistema_genital_macho`
+--
+
+INSERT INTO `listado_sistema_genital_macho` VALUES(1, 'Prepucio');
+INSERT INTO `listado_sistema_genital_macho` VALUES(2, 'Escroto');
+INSERT INTO `listado_sistema_genital_macho` VALUES(3, 'Testiculos');
+INSERT INTO `listado_sistema_genital_macho` VALUES(4, 'Pene');
+INSERT INTO `listado_sistema_genital_macho` VALUES(5, 'Prostata');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_sistema_urinario`
+--
+
+CREATE TABLE `listado_sistema_urinario` (
+  `id_list_sistema_urinario` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_sistema_urinario` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_sistema_urinario`),
+  UNIQUE KEY `id_list_sistema_urinario` (`id_list_sistema_urinario`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `listado_sistema_urinario`
+--
+
+INSERT INTO `listado_sistema_urinario` VALUES(1, 'Uretra');
+INSERT INTO `listado_sistema_urinario` VALUES(2, 'Vejiga');
+INSERT INTO `listado_sistema_urinario` VALUES(3, 'Riñones');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_sonido_respiratorio`
+--
+
+CREATE TABLE `listado_sonido_respiratorio` (
+  `id_list_sonido_respiratorio` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_sonido_respiratorio` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_sonido_respiratorio`),
+  UNIQUE KEY `id_list_sonido_respiratorio` (`id_list_sonido_respiratorio`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `listado_sonido_respiratorio`
+--
+
+INSERT INTO `listado_sonido_respiratorio` VALUES(1, 'Bronquial');
+INSERT INTO `listado_sonido_respiratorio` VALUES(2, 'Vesicular');
+INSERT INTO `listado_sonido_respiratorio` VALUES(3, 'Broncovesicula');
+INSERT INTO `listado_sonido_respiratorio` VALUES(4, 'Sonido vesicular aumentado');
+INSERT INTO `listado_sonido_respiratorio` VALUES(5, 'Sonido vesicular disminuido');
+INSERT INTO `listado_sonido_respiratorio` VALUES(6, 'Soplos primarios o sibilancias');
+INSERT INTO `listado_sonido_respiratorio` VALUES(7, 'Estridores');
+INSERT INTO `listado_sonido_respiratorio` VALUES(8, 'Soplos secundarios');
+INSERT INTO `listado_sonido_respiratorio` VALUES(9, 'Crepitaciones/estertores');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `listado_via_aerea`
+--
+
+CREATE TABLE `listado_via_aerea` (
+  `id_list_via_aerea` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_list_via_aerea` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_list_via_aerea`),
+  UNIQUE KEY `id_list_via_aerea` (`id_list_via_aerea`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `listado_via_aerea`
+--
+
+INSERT INTO `listado_via_aerea` VALUES(1, 'Trufa');
+INSERT INTO `listado_via_aerea` VALUES(2, 'Cavidad nasal');
+INSERT INTO `listado_via_aerea` VALUES(3, 'Laringe');
+INSERT INTO `listado_via_aerea` VALUES(4, 'Traquea');
+INSERT INTO `listado_via_aerea` VALUES(5, 'Pulmones');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lista_linfon`
+--
+
+CREATE TABLE `lista_linfon` (
+  `id_lista_linfonodo` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_lista_linfonodo` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id_lista_linfonodo`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `lista_linfon`
+--
+
+INSERT INTO `lista_linfon` VALUES(1, 'MANDIBULARES');
+INSERT INTO `lista_linfon` VALUES(2, 'ESCAPULARES');
+INSERT INTO `lista_linfon` VALUES(3, 'INGUINALES');
+INSERT INTO `lista_linfon` VALUES(4, 'POPLITEOS');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `membrana_mucosa`
+--
+
+CREATE TABLE `membrana_mucosa` (
+  `id_membrana_mucosa` int(11) NOT NULL AUTO_INCREMENT,
+  `id_list_membrana_mucosa` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  `estado_membrana_mucosa` varchar(7) DEFAULT NULL,
+  `comentario_membrana_mucosa` text,
+  PRIMARY KEY (`id_membrana_mucosa`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_membrana_mucosa` (`id_list_membrana_mucosa`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+
+--
+-- Dumping data for table `membrana_mucosa`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `organo_sentido`
+--
+
+CREATE TABLE `organo_sentido` (
+  `id_otro_organo_sentido` int(11) NOT NULL AUTO_INCREMENT,
+  `id_list_organo_sentido` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  `estado_otro_organo_sentido` varchar(7) DEFAULT NULL,
+  `comentario_organo_sentido` text,
+  PRIMARY KEY (`id_otro_organo_sentido`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_organo_sentido` (`id_list_organo_sentido`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=183 ;
+
+--
+-- Dumping data for table `organo_sentido`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `otro_sistema_resp`
+--
+
+CREATE TABLE `otro_sistema_resp` (
+  `id_otro_sistema_resp` int(11) NOT NULL AUTO_INCREMENT,
+  `estado_otro_sistema_resp` varchar(7) DEFAULT NULL,
+  `comentario_otro_sistema_resp` text,
+  `id_list_otro_sistema_resp` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  PRIMARY KEY (`id_otro_sistema_resp`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_otro_sistema_resp` (`id_list_otro_sistema_resp`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=43 ;
+
+--
+-- Dumping data for table `otro_sistema_resp`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `otro_sist_ner`
+--
+
+CREATE TABLE `otro_sist_ner` (
+  `id_otro` int(11) NOT NULL AUTO_INCREMENT,
+  `id_hist` int(11) NOT NULL,
+  `id_list_otro` int(11) NOT NULL,
+  `estado_otro` varchar(7) DEFAULT NULL,
+  `comentario_otro` text,
+  PRIMARY KEY (`id_otro`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_otro` (`id_list_otro`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=82 ;
+
+--
+-- Dumping data for table `otro_sist_ner`
+--
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `palpacion`
+--
+
+CREATE TABLE `palpacion` (
+  `id_palpacion` int(11) NOT NULL AUTO_INCREMENT,
+  `id_list_palpac` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  `estado_palpacion` varchar(7) DEFAULT NULL,
+  `comentario_palpa` text,
+  `lado_palpac` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`id_palpacion`),
+  UNIQUE KEY `id_palpacion` (`id_palpacion`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_palpac` (`id_list_palpac`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=74 ;
+
+--
+-- Dumping data for table `palpacion`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `par_craneal`
+--
+
+CREATE TABLE `par_craneal` (
+  `id_par_craneal` int(11) NOT NULL AUTO_INCREMENT,
+  `id_list_par_craneal` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  `estado_par_craneal` varchar(7) DEFAULT NULL,
+  `comentario_par_craneal` text,
+  `lado_par_craneal` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`id_par_craneal`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_par_craneal` (`id_list_par_craneal`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=123 ;
+
+--
+-- Dumping data for table `par_craneal`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patron_distribu`
+--
+
+CREATE TABLE `patron_distribu` (
+  `id_patron_distri` int(11) NOT NULL AUTO_INCREMENT,
+  `vista_late_iz` varchar(2) NOT NULL,
+  `vista_lat_der` varchar(2) DEFAULT NULL,
+  `vista_ventral` varchar(2) DEFAULT NULL,
+  `vista_dorsal` varchar(2) DEFAULT NULL,
+  `id_hist` int(11) NOT NULL,
+  PRIMARY KEY (`id_patron_distri`),
+  UNIQUE KEY `id_patron_distri` (`id_patron_distri`),
+  KEY `id_hist` (`id_hist`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+
+--
+-- Dumping data for table `patron_distribu`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patron_respiratorio`
+--
+
+CREATE TABLE `patron_respiratorio` (
+  `id_patron_respiratorio` int(11) NOT NULL AUTO_INCREMENT,
+  `id_hist` int(11) NOT NULL,
+  `id_list_patron_respiratorio` int(11) NOT NULL,
+  `estado_patron_respiratorio` varchar(2) DEFAULT NULL,
+  `comentario_patron_respiratorio` text,
+  PRIMARY KEY (`id_patron_respiratorio`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_patron_respiratorio` (`id_list_patron_respiratorio`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=83 ;
+
+--
+-- Dumping data for table `patron_respiratorio`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profesion_propie`
+--
+
+CREATE TABLE `profesion_propie` (
+  `id_profesion_propie` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_profe_propie` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_profesion_propie`),
+  UNIQUE KEY `id_profesion_propie` (`id_profesion_propie`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=362 ;
+
+--
+-- Dumping data for table `profesion_propie`
+--
+
+INSERT INTO `profesion_propie` VALUES(1, 'Ingeniero de sistemas');
+INSERT INTO `profesion_propie` VALUES(3, 'Administrador de empresas Agropecuarias');
+INSERT INTO `profesion_propie` VALUES(4, 'Administrador de empresas con enfasis en economia ');
+INSERT INTO `profesion_propie` VALUES(5, 'Administrador de gerencia');
+INSERT INTO `profesion_propie` VALUES(6, 'Administrador de Negocios');
+INSERT INTO `profesion_propie` VALUES(7, 'Administrador de Proyectos Empresariales Agropecua');
+INSERT INTO `profesion_propie` VALUES(8, 'Administrador de recursos humanos');
+INSERT INTO `profesion_propie` VALUES(9, 'Administrador en sistemas');
+INSERT INTO `profesion_propie` VALUES(10, 'Administrador  Educativos');
+INSERT INTO `profesion_propie` VALUES(11, 'Administrador  Financieros');
+INSERT INTO `profesion_propie` VALUES(12, 'Administrador Financieros y bancarios');
+INSERT INTO `profesion_propie` VALUES(13, 'Administrador Publico');
+INSERT INTO `profesion_propie` VALUES(14, 'Administrador Publico Municipal y Regional');
+INSERT INTO `profesion_propie` VALUES(15, 'Administrador Turistico');
+INSERT INTO `profesion_propie` VALUES(16, 'Administrador Turisticoy Hotelero');
+INSERT INTO `profesion_propie` VALUES(17, 'Analista de Sistemas');
+INSERT INTO `profesion_propie` VALUES(18, 'Analista en Programacion y Sistemas');
+INSERT INTO `profesion_propie` VALUES(19, 'Analista tributario');
+INSERT INTO `profesion_propie` VALUES(20, 'Antropologo');
+INSERT INTO `profesion_propie` VALUES(21, 'Archivista');
+INSERT INTO `profesion_propie` VALUES(22, 'Archivista y documentadore');
+INSERT INTO `profesion_propie` VALUES(23, 'Arquitecto');
+INSERT INTO `profesion_propie` VALUES(24, 'Arquitecto Urbanista y Constructor');
+INSERT INTO `profesion_propie` VALUES(25, 'Auxiliar Bancario');
+INSERT INTO `profesion_propie` VALUES(26, 'Auxiliar Contable');
+INSERT INTO `profesion_propie` VALUES(27, 'Auxiliar de Drogueria');
+INSERT INTO `profesion_propie` VALUES(28, 'Auxiliares de Enfermerias');
+INSERT INTO `profesion_propie` VALUES(29, 'Auxiliares de Farmacia');
+INSERT INTO `profesion_propie` VALUES(30, 'Auxiliares de higiene Oral');
+INSERT INTO `profesion_propie` VALUES(31, 'Auxiliares de Laboratorio');
+INSERT INTO `profesion_propie` VALUES(32, 'Auxiliares de Laboratorio Clinico');
+INSERT INTO `profesion_propie` VALUES(33, 'Auxiliares de mantenimiento Industrial');
+INSERT INTO `profesion_propie` VALUES(34, 'Auxiliar de Odontologia');
+INSERT INTO `profesion_propie` VALUES(35, 'Auxiliares de Preescolar');
+INSERT INTO `profesion_propie` VALUES(36, 'Auxiliares de Servicio Abordo');
+INSERT INTO `profesion_propie` VALUES(37, 'Auxiliares de Sistemas');
+INSERT INTO `profesion_propie` VALUES(38, 'Auxiliares en Sistemas');
+INSERT INTO `profesion_propie` VALUES(39, 'Bacteriologo');
+INSERT INTO `profesion_propie` VALUES(40, 'Bacteriologos y Laboratoristas Clinico');
+INSERT INTO `profesion_propie` VALUES(41, 'Bibliotecologo');
+INSERT INTO `profesion_propie` VALUES(42, 'Cirujano Maxilofaciale');
+INSERT INTO `profesion_propie` VALUES(43, 'Cirujanos de Cabeza y Cuello');
+INSERT INTO `profesion_propie` VALUES(44, 'Citohistotecnologos');
+INSERT INTO `profesion_propie` VALUES(45, 'Esp Comercio exterior');
+INSERT INTO `profesion_propie` VALUES(46, 'Esp en Comercio Internacional');
+INSERT INTO `profesion_propie` VALUES(47, 'Comunicadores Sociales');
+INSERT INTO `profesion_propie` VALUES(48, 'Constructores en Arquitectura e Ingenieria');
+INSERT INTO `profesion_propie` VALUES(49, 'Contadores');
+INSERT INTO `profesion_propie` VALUES(50, 'Contador Publico');
+INSERT INTO `profesion_propie` VALUES(51, 'Contador publico Titulado');
+INSERT INTO `profesion_propie` VALUES(52, 'Profesionales en desarrollo familiar');
+INSERT INTO `profesion_propie` VALUES(53, 'Dibujantes Arquitectonicos');
+INSERT INTO `profesion_propie` VALUES(54, 'Dibujantes tecnicos Mecanicos');
+INSERT INTO `profesion_propie` VALUES(55, 'Disenadores de Espacios Comerciales');
+INSERT INTO `profesion_propie` VALUES(56, 'Disenadores de modas');
+INSERT INTO `profesion_propie` VALUES(57, 'Disenadores graficos');
+INSERT INTO `profesion_propie` VALUES(58, 'Disenadors graficos Publicitarios');
+INSERT INTO `profesion_propie` VALUES(59, 'Disenadores Industriales');
+INSERT INTO `profesion_propie` VALUES(60, 'Disenadores Publicitarios');
+INSERT INTO `profesion_propie` VALUES(61, 'Disenadores Visuales');
+INSERT INTO `profesion_propie` VALUES(62, 'Doctores en Educacion');
+INSERT INTO `profesion_propie` VALUES(63, 'Economistas');
+INSERT INTO `profesion_propie` VALUES(64, 'Economistas del hogar');
+INSERT INTO `profesion_propie` VALUES(65, 'Economistas Empresariales');
+INSERT INTO `profesion_propie` VALUES(66, 'Edafologos');
+INSERT INTO `profesion_propie` VALUES(67, 'Enfermeros Superiores y/o Empresariales');
+INSERT INTO `profesion_propie` VALUES(68, 'Especialistas en Docencia e Investigacion universi');
+INSERT INTO `profesion_propie` VALUES(69, 'Farmaceutas');
+INSERT INTO `profesion_propie` VALUES(70, 'Filósofos');
+INSERT INTO `profesion_propie` VALUES(71, 'Físicos');
+INSERT INTO `profesion_propie` VALUES(72, 'Fisioterapeutas');
+INSERT INTO `profesion_propie` VALUES(73, 'Fonoaudiólogos');
+INSERT INTO `profesion_propie` VALUES(74, 'Geólogos');
+INSERT INTO `profesion_propie` VALUES(75, 'Geómorfologos');
+INSERT INTO `profesion_propie` VALUES(76, 'Gerentes en Gestión Cultural');
+INSERT INTO `profesion_propie` VALUES(77, 'Guias Turísticos');
+INSERT INTO `profesion_propie` VALUES(78, 'Higienistas Orales');
+INSERT INTO `profesion_propie` VALUES(79, 'Profesionales en Hoteleria y Turismo');
+INSERT INTO `profesion_propie` VALUES(80, 'Ingenieros Agricolas');
+INSERT INTO `profesion_propie` VALUES(81, 'Ingenieros Agroindustriales');
+INSERT INTO `profesion_propie` VALUES(82, 'Ingenieros Agrónomos');
+INSERT INTO `profesion_propie` VALUES(83, 'Ingenieros Ambientales');
+INSERT INTO `profesion_propie` VALUES(84, 'Ingenieros Civiles y de Suelos');
+INSERT INTO `profesion_propie` VALUES(85, 'Ingenieros Civiles y de Suelos');
+INSERT INTO `profesion_propie` VALUES(86, 'Ingenieros de Alimentos');
+INSERT INTO `profesion_propie` VALUES(87, 'Ingenieros de Sistemas');
+INSERT INTO `profesion_propie` VALUES(88, 'Ingenieros de Sistemas y Comunicaciones');
+INSERT INTO `profesion_propie` VALUES(89, 'Ingenieros de Sistemas y Telecomunicaciones');
+INSERT INTO `profesion_propie` VALUES(90, 'Ingenieros de Sonido');
+INSERT INTO `profesion_propie` VALUES(91, 'Ingenieros Electricistas');
+INSERT INTO `profesion_propie` VALUES(92, 'Ingenieros Electromecánicos');
+INSERT INTO `profesion_propie` VALUES(93, 'Ingenieros Electrónicos');
+INSERT INTO `profesion_propie` VALUES(94, 'Ingenieros en Computación');
+INSERT INTO `profesion_propie` VALUES(95, 'Ingenieros en Informática');
+INSERT INTO `profesion_propie` VALUES(96, 'Ingenieros Forestales');
+INSERT INTO `profesion_propie` VALUES(97, 'Ingenieros Industriales');
+INSERT INTO `profesion_propie` VALUES(98, 'Ingenieros Informáticos');
+INSERT INTO `profesion_propie` VALUES(99, 'Ingenieros Mecanicos');
+INSERT INTO `profesion_propie` VALUES(100, 'Ingenieros Mecanicos y de Infraestructura');
+INSERT INTO `profesion_propie` VALUES(101, 'Ingenieros Metalúrgicos');
+INSERT INTO `profesion_propie` VALUES(102, 'Ingenieros ópticos');
+INSERT INTO `profesion_propie` VALUES(103, 'Ingenieros Quimicos');
+INSERT INTO `profesion_propie` VALUES(104, 'Ingenieros Telemáticos');
+INSERT INTO `profesion_propie` VALUES(105, 'Licenciados en Administración Educativa');
+INSERT INTO `profesion_propie` VALUES(106, 'Licenciados en Básica Primaria');
+INSERT INTO `profesion_propie` VALUES(107, 'Licenciados en Biología y Química');
+INSERT INTO `profesion_propie` VALUES(108, 'Licenciado en Ciencias Religiosas');
+INSERT INTO `profesion_propie` VALUES(109, 'Licenciados en Ciencias Sociales');
+INSERT INTO `profesion_propie` VALUES(110, 'Licenciados en Educación');
+INSERT INTO `profesion_propie` VALUES(111, 'Licenciados en Educación Ambiental');
+INSERT INTO `profesion_propie` VALUES(112, 'Licenciados en Educación Artística');
+INSERT INTO `profesion_propie` VALUES(113, 'Licenciados en Educación Básica Primaria');
+INSERT INTO `profesion_propie` VALUES(114, 'Licenciados en Educación Especial');
+INSERT INTO `profesion_propie` VALUES(115, 'Licenciados en Educación Física');
+INSERT INTO `profesion_propie` VALUES(116, 'Licenciados en Educación Física y Recreación');
+INSERT INTO `profesion_propie` VALUES(117, 'Licenciados en Educación Personalizada');
+INSERT INTO `profesion_propie` VALUES(118, 'Licenciados en Educación Preescolar');
+INSERT INTO `profesion_propie` VALUES(119, 'Licenciados en Educación preescolar de Promoción d');
+INSERT INTO `profesion_propie` VALUES(120, 'Licenciados en Electrónica y Mecánica Industrial');
+INSERT INTO `profesion_propie` VALUES(121, 'Licenciados en Espanol y Literatura');
+INSERT INTO `profesion_propie` VALUES(122, 'Licenciados en farmacéutica');
+INSERT INTO `profesion_propie` VALUES(123, 'Licenciados en Filosofía');
+INSERT INTO `profesion_propie` VALUES(124, 'Licenciados en Filosofía y Letras');
+INSERT INTO `profesion_propie` VALUES(125, 'Licenciados en Física y Quimica');
+INSERT INTO `profesion_propie` VALUES(126, 'Licenciados en Historia y Geografía');
+INSERT INTO `profesion_propie` VALUES(127, 'Licenciados en Idiomas');
+INSERT INTO `profesion_propie` VALUES(128, 'Licenciados en Ingles');
+INSERT INTO `profesion_propie` VALUES(129, 'Licenciados en Lenguas Modernas');
+INSERT INTO `profesion_propie` VALUES(130, 'Licenciados en Lenguas modernas y Literatura');
+INSERT INTO `profesion_propie` VALUES(131, 'Licenciados en Matemáticas');
+INSERT INTO `profesion_propie` VALUES(132, 'Licenciados en Matemáticas y Física');
+INSERT INTO `profesion_propie` VALUES(133, 'Licenciados en Música');
+INSERT INTO `profesion_propie` VALUES(134, 'Licenciados en Orientación y Consejeria');
+INSERT INTO `profesion_propie` VALUES(135, 'Licenciados en Pedagogía reeducativa');
+INSERT INTO `profesion_propie` VALUES(136, 'Licenciados en Preescolar');
+INSERT INTO `profesion_propie` VALUES(137, 'Licenciados en Psicoorientación');
+INSERT INTO `profesion_propie` VALUES(138, 'Licenciados en Sociales');
+INSERT INTO `profesion_propie` VALUES(139, 'Licenciados en Teología');
+INSERT INTO `profesion_propie` VALUES(140, 'Locutores');
+INSERT INTO `profesion_propie` VALUES(141, 'Maestros en Artes Plasticas');
+INSERT INTO `profesion_propie` VALUES(142, 'Magisters en Administración y Supervision Educativ');
+INSERT INTO `profesion_propie` VALUES(143, 'Mecánicos Automotriz');
+INSERT INTO `profesion_propie` VALUES(144, 'Mecánicos Dental');
+INSERT INTO `profesion_propie` VALUES(145, 'Mecánicos Diesel');
+INSERT INTO `profesion_propie` VALUES(146, 'Mecánicos en Mantenimiento Industrial');
+INSERT INTO `profesion_propie` VALUES(147, 'Mecánicos generales de Mantenimiento y Automatizac');
+INSERT INTO `profesion_propie` VALUES(148, 'Mecánicos Industriales');
+INSERT INTO `profesion_propie` VALUES(149, 'Médicos Anestesiólogos');
+INSERT INTO `profesion_propie` VALUES(150, 'Médicos Auditores en Salud');
+INSERT INTO `profesion_propie` VALUES(151, 'Médicos Cancerólogos');
+INSERT INTO `profesion_propie` VALUES(152, 'Médicos Cirujanos Laparoscópicos');
+INSERT INTO `profesion_propie` VALUES(153, 'Médicos Cirujanos Pediatras');
+INSERT INTO `profesion_propie` VALUES(154, 'Medicos Cirujanos Plastico');
+INSERT INTO `profesion_propie` VALUES(155, 'Medicos Cirujanos Plastico Esteticos Maxilofacial ');
+INSERT INTO `profesion_propie` VALUES(156, 'Médicos Deportólogos');
+INSERT INTO `profesion_propie` VALUES(157, 'Médicos en terapia Respiratoria');
+INSERT INTO `profesion_propie` VALUES(158, 'Médicos Fisiatras');
+INSERT INTO `profesion_propie` VALUES(159, 'Médicos Físiatras y Electrómiografos');
+INSERT INTO `profesion_propie` VALUES(160, 'Médicos Gastroenterólogos');
+INSERT INTO `profesion_propie` VALUES(161, 'Medicos Generales Colposcopistas');
+INSERT INTO `profesion_propie` VALUES(162, 'Medicos generales y/o Cirujanos');
+INSERT INTO `profesion_propie` VALUES(163, 'Médicos Geriatras Clínicos');
+INSERT INTO `profesion_propie` VALUES(164, 'Medicos Ginecobstetras');
+INSERT INTO `profesion_propie` VALUES(165, 'Médicos Internistas');
+INSERT INTO `profesion_propie` VALUES(166, 'Médicos Internistas y neumólogos');
+INSERT INTO `profesion_propie` VALUES(167, 'Médicos Naturistas');
+INSERT INTO `profesion_propie` VALUES(168, 'Médicos oncólogos');
+INSERT INTO `profesion_propie` VALUES(169, 'Médicos Ortopedistas');
+INSERT INTO `profesion_propie` VALUES(170, 'Médicos Ortopedistas y Traumatologos');
+INSERT INTO `profesion_propie` VALUES(171, 'Médicos Otorinilaringologos');
+INSERT INTO `profesion_propie` VALUES(172, 'Médicos Psiquiatras');
+INSERT INTO `profesion_propie` VALUES(173, 'Médicos Radiologos');
+INSERT INTO `profesion_propie` VALUES(174, 'Médicos en salud Ocupacional');
+INSERT INTO `profesion_propie` VALUES(175, 'Médicos Veterinarios');
+INSERT INTO `profesion_propie` VALUES(176, 'Médicos Veterinarios Zootecnistas');
+INSERT INTO `profesion_propie` VALUES(177, 'Médicos y Cirujanos');
+INSERT INTO `profesion_propie` VALUES(178, 'Mercadologos');
+INSERT INTO `profesion_propie` VALUES(179, 'Músicos');
+INSERT INTO `profesion_propie` VALUES(180, 'Nutricionistas Dietistas');
+INSERT INTO `profesion_propie` VALUES(181, 'Odontólogos');
+INSERT INTO `profesion_propie` VALUES(182, 'Operadores de Maquinas y herramientas');
+INSERT INTO `profesion_propie` VALUES(183, 'Periodistas');
+INSERT INTO `profesion_propie` VALUES(184, 'Presbiteros');
+INSERT INTO `profesion_propie` VALUES(185, 'Profesionales en Administración y Finanzas');
+INSERT INTO `profesion_propie` VALUES(186, 'Profesionales en Comercio Internacional');
+INSERT INTO `profesion_propie` VALUES(187, 'Profesionales en Desarrollo familiar');
+INSERT INTO `profesion_propie` VALUES(188, 'Profesionales en estadística');
+INSERT INTO `profesion_propie` VALUES(189, 'Profesionales en Guianza Turistica');
+INSERT INTO `profesion_propie` VALUES(190, 'Profesionales en Mercadeo Nacional e Internacional');
+INSERT INTO `profesion_propie` VALUES(191, 'Profesionales en Salud ocupacional');
+INSERT INTO `profesion_propie` VALUES(192, 'Profesionales Normalista');
+INSERT INTO `profesion_propie` VALUES(193, 'Promotores de Salud');
+INSERT INTO `profesion_propie` VALUES(194, 'Psicólogos');
+INSERT INTO `profesion_propie` VALUES(195, 'Psicoorientadoras');
+INSERT INTO `profesion_propie` VALUES(196, 'Psiquiatras');
+INSERT INTO `profesion_propie` VALUES(197, 'Publicistas');
+INSERT INTO `profesion_propie` VALUES(198, 'Quimicos farmacéuticos');
+INSERT INTO `profesion_propie` VALUES(199, 'Quinesiólogos');
+INSERT INTO `profesion_propie` VALUES(200, 'Radiocomunicaciones');
+INSERT INTO `profesion_propie` VALUES(201, 'Salud Ocupacional');
+INSERT INTO `profesion_propie` VALUES(202, 'Secretarias Auxiliar contable');
+INSERT INTO `profesion_propie` VALUES(203, 'Supervisores en Logística');
+INSERT INTO `profesion_propie` VALUES(204, 'Técnicos Agricolas');
+INSERT INTO `profesion_propie` VALUES(205, 'Técnicos Agropecuarios');
+INSERT INTO `profesion_propie` VALUES(206, 'Técnicos Automotrices');
+INSERT INTO `profesion_propie` VALUES(207, 'Técnicos Auxiliares Contables');
+INSERT INTO `profesion_propie` VALUES(208, 'Técnicos Auxiliares de Estadística en Salud');
+INSERT INTO `profesion_propie` VALUES(209, 'Técnicos Constructores');
+INSERT INTO `profesion_propie` VALUES(210, 'Técnicos Contables');
+INSERT INTO `profesion_propie` VALUES(211, 'Técnicos en Equipos odontológicos');
+INSERT INTO `profesion_propie` VALUES(212, 'Técnicos Dentales');
+INSERT INTO `profesion_propie` VALUES(213, 'Técnicos Dentales e Higienistas orales');
+INSERT INTO `profesion_propie` VALUES(214, 'Técnicos Electricistas');
+INSERT INTO `profesion_propie` VALUES(215, 'Técnicos Electricistas Automotrices');
+INSERT INTO `profesion_propie` VALUES(216, 'Técnicos Electrónicos');
+INSERT INTO `profesion_propie` VALUES(217, 'Técnicos en Administración bancaria');
+INSERT INTO `profesion_propie` VALUES(218, 'Técnicos en Administración de Empresas');
+INSERT INTO `profesion_propie` VALUES(219, 'Técnicos en Administración de Empresas Agropecuari');
+INSERT INTO `profesion_propie` VALUES(220, 'Técnicos en Administracion de Empresas Sistematiza');
+INSERT INTO `profesion_propie` VALUES(221, 'Técnicos en Administración de empresas con enfasis');
+INSERT INTO `profesion_propie` VALUES(222, 'Técnicos en Administración de Empresas y Sistemas');
+INSERT INTO `profesion_propie` VALUES(223, 'Técnicos en Administración de Sistemas');
+INSERT INTO `profesion_propie` VALUES(224, 'Técnicos en Administración empresarial');
+INSERT INTO `profesion_propie` VALUES(225, 'Técnicos en Administración Financiera');
+INSERT INTO `profesion_propie` VALUES(226, 'Técnicos en Administración Pública');
+INSERT INTO `profesion_propie` VALUES(227, 'Técnicos en Administración y Finanzas');
+INSERT INTO `profesion_propie` VALUES(228, 'Técnicos en Admistración y Mercadeo');
+INSERT INTO `profesion_propie` VALUES(229, 'Técnicos en Automatización Industrial');
+INSERT INTO `profesion_propie` VALUES(230, 'Administración y Finanzas"');
+INSERT INTO `profesion_propie` VALUES(231, 'Técnicos en Comunicaciones');
+INSERT INTO `profesion_propie` VALUES(232, 'Técnicos en Contabilidad Sistematizada');
+INSERT INTO `profesion_propie` VALUES(233, 'Técnicos en Contabilidad y Finanzas');
+INSERT INTO `profesion_propie` VALUES(234, 'Técnicos en Contaduría');
+INSERT INTO `profesion_propie` VALUES(235, 'Técnicos en Diseño gráfico');
+INSERT INTO `profesion_propie` VALUES(236, 'Técnicos en Electricidad y Electrónica');
+INSERT INTO `profesion_propie` VALUES(237, 'Técnicos en electrónica');
+INSERT INTO `profesion_propie` VALUES(238, 'Técnicos en Estadistica');
+INSERT INTO `profesion_propie` VALUES(239, 'Técnicos en Gestión empresarial');
+INSERT INTO `profesion_propie` VALUES(240, 'Técnicos en Hotelería y Turismo');
+INSERT INTO `profesion_propie` VALUES(241, 'Técnicos en Informática Empresarial');
+INSERT INTO `profesion_propie` VALUES(242, 'Técnicos en Instalación de Redes a Gas');
+INSERT INTO `profesion_propie` VALUES(243, 'Técnicos en Instalación de redes de telecomunicaci');
+INSERT INTO `profesion_propie` VALUES(244, 'Técnicos en Instalación de Redes Eléctricas');
+INSERT INTO `profesion_propie` VALUES(245, 'Técnicos en Instalación de Redes Internas de Gas');
+INSERT INTO `profesion_propie` VALUES(246, 'Técnicos en Instalación de redes por TV Cable');
+INSERT INTO `profesion_propie` VALUES(247, 'Técnicos en Instrumentación Industrial');
+INSERT INTO `profesion_propie` VALUES(248, 'Técnicos en Lamina y Soldadura');
+INSERT INTO `profesion_propie` VALUES(249, 'Técnicos en Mantenimiento');
+INSERT INTO `profesion_propie` VALUES(250, 'Técnicosen Mantenimiento Electrónico');
+INSERT INTO `profesion_propie` VALUES(251, 'Técnicos en mantenimiento Industrial');
+INSERT INTO `profesion_propie` VALUES(252, 'Técnicos en Maquinaria y Herramientas');
+INSERT INTO `profesion_propie` VALUES(253, 'Técnicos en Mecánica Dental');
+INSERT INTO `profesion_propie` VALUES(254, 'Técnicos en Mecánica Industrial');
+INSERT INTO `profesion_propie` VALUES(255, 'Técnicos en Mercadeo');
+INSERT INTO `profesion_propie` VALUES(256, 'Técnicos en Metalistería y Soldadura Eléctrica');
+INSERT INTO `profesion_propie` VALUES(257, 'Técnicos en Preescolar');
+INSERT INTO `profesion_propie` VALUES(258, 'Técnicos en Producción Industrial');
+INSERT INTO `profesion_propie` VALUES(259, 'Técnicos en Programación de Sistemas');
+INSERT INTO `profesion_propie` VALUES(260, 'Técnicos en promoción Social');
+INSERT INTO `profesion_propie` VALUES(261, 'Técnicos en recepción Hotelera');
+INSERT INTO `profesion_propie` VALUES(262, 'Técnicos en Refrigeración');
+INSERT INTO `profesion_propie` VALUES(263, 'Técnicos en Reparación de Computadores');
+INSERT INTO `profesion_propie` VALUES(264, 'Técnicos en reparación y Ensamble de Computadores');
+INSERT INTO `profesion_propie` VALUES(265, 'Técnicos en Saneamiento Ambiental');
+INSERT INTO `profesion_propie` VALUES(266, 'Técnicos en Secretariado');
+INSERT INTO `profesion_propie` VALUES(267, 'Técnicos en Secretariado comercial Sistematizado');
+INSERT INTO `profesion_propie` VALUES(268, 'Técnicos en Secretariado Ejecutivo');
+INSERT INTO `profesion_propie` VALUES(269, 'Técnicos en sistemas');
+INSERT INTO `profesion_propie` VALUES(270, 'Técnicos Especialista en gas');
+INSERT INTO `profesion_propie` VALUES(271, 'Técnicos forestales');
+INSERT INTO `profesion_propie` VALUES(272, 'Técnicos Industrial');
+INSERT INTO `profesion_propie` VALUES(273, 'Técnicos Mecánicos');
+INSERT INTO `profesion_propie` VALUES(274, 'Técnicos Mecánicos Automotrices');
+INSERT INTO `profesion_propie` VALUES(275, 'Técnicos profesionales en Administración Agropecua');
+INSERT INTO `profesion_propie` VALUES(276, 'Técnicos profesionales en administración de empres');
+INSERT INTO `profesion_propie` VALUES(277, 'Técnicos profesionales en administración financier');
+INSERT INTO `profesion_propie` VALUES(278, 'Técnicos profesionales en hotelería y turismo');
+INSERT INTO `profesion_propie` VALUES(279, 'Técnicos profesionales en Informática empresarial');
+INSERT INTO `profesion_propie` VALUES(280, 'Técnicos profesionales en informática y sistemas');
+INSERT INTO `profesion_propie` VALUES(281, 'Técnicos profesionales en mantenimiento electrónic');
+INSERT INTO `profesion_propie` VALUES(282, 'Técnicos profesionales en mercadeo de productos');
+INSERT INTO `profesion_propie` VALUES(283, 'Técnicos profesionales en producción pecuaria');
+INSERT INTO `profesion_propie` VALUES(284, 'Técnicos profesionales en Técnicas forestales');
+INSERT INTO `profesion_propie` VALUES(285, 'Técnico profesional intermedio en Saneamiento Ambi');
+INSERT INTO `profesion_propie` VALUES(286, 'Tecnólogos Agroindustriales');
+INSERT INTO `profesion_propie` VALUES(287, 'Tecnólogos Agropecuarios');
+INSERT INTO `profesion_propie` VALUES(288, 'Tecnólogos Biomedicos');
+INSERT INTO `profesion_propie` VALUES(289, 'Tecnólogos Constructores');
+INSERT INTO `profesion_propie` VALUES(290, 'Tecnólogos de sistemas');
+INSERT INTO `profesion_propie` VALUES(291, 'Tecnólogos electricistas');
+INSERT INTO `profesion_propie` VALUES(292, 'Tecnólogos electrómecanicos');
+INSERT INTO `profesion_propie` VALUES(293, 'Tecnólogos electrónicos');
+INSERT INTO `profesion_propie` VALUES(294, 'Tecnólogos Empresariales');
+INSERT INTO `profesion_propie` VALUES(295, 'Tecnólogos en Administración Agropecuaria');
+INSERT INTO `profesion_propie` VALUES(296, 'Tecnólogos en Administración de Aerolineas');
+INSERT INTO `profesion_propie` VALUES(297, 'Tecnólogos en Administración de Empresas Agropecua');
+INSERT INTO `profesion_propie` VALUES(298, 'Tecnólogos en Administración de empresas sistemati');
+INSERT INTO `profesion_propie` VALUES(299, 'Tecnólogos en Administracion de negocios');
+INSERT INTO `profesion_propie` VALUES(300, 'Tecnólogos en Administración de sistemas');
+INSERT INTO `profesion_propie` VALUES(301, 'Tecnólogos en Administración Financiera');
+INSERT INTO `profesion_propie` VALUES(302, 'Tecnólogos en Administración Financiera y Bancaria');
+INSERT INTO `profesion_propie` VALUES(303, 'Tecnólogos en Administración Municipal');
+INSERT INTO `profesion_propie` VALUES(304, 'Tecnólogos en Administración Pública Municipal');
+INSERT INTO `profesion_propie` VALUES(305, 'Tecnólogos en Administración y Finanzas');
+INSERT INTO `profesion_propie` VALUES(306, 'Tecnólogos en Administración y Mercadeo');
+INSERT INTO `profesion_propie` VALUES(307, 'Tecnólogos en Análisis de Sistemas y Programación ');
+INSERT INTO `profesion_propie` VALUES(308, 'Tecnólogos en Automatización Industrial');
+INSERT INTO `profesion_propie` VALUES(309, 'Tecnólogos en Dibujo Arquitectonico');
+INSERT INTO `profesion_propie` VALUES(310, 'Tecnólogos en Diseño de Modas y Patronaje industri');
+INSERT INTO `profesion_propie` VALUES(311, 'Tecnólogos en Electricidad y Mantenimiento industr');
+INSERT INTO `profesion_propie` VALUES(312, 'Tecnólogos en Electrónica');
+INSERT INTO `profesion_propie` VALUES(313, 'Tecnólogos en Electrónica Industrial');
+INSERT INTO `profesion_propie` VALUES(314, 'Tecnólogos en Electrónica y Automatización Industr');
+INSERT INTO `profesion_propie` VALUES(315, 'Tecnólogos en Electrónica y Comunicaciones');
+INSERT INTO `profesion_propie` VALUES(316, 'Tecnólogos en Fotografía');
+INSERT INTO `profesion_propie` VALUES(317, 'Tecnólogos en Gestión Bancaria y Financiera');
+INSERT INTO `profesion_propie` VALUES(318, 'Tecnólogos en Hoteleria y Turismo');
+INSERT INTO `profesion_propie` VALUES(319, 'Tecnologo en Imagenología');
+INSERT INTO `profesion_propie` VALUES(320, 'Tecnologo en Informática');
+INSERT INTO `profesion_propie` VALUES(321, 'Tecnólogos en Informática Aplicada');
+INSERT INTO `profesion_propie` VALUES(322, 'Tecnólogos en Ingeniería Civil');
+INSERT INTO `profesion_propie` VALUES(323, 'Tecnólogos en Ingeniería de Sistemas');
+INSERT INTO `profesion_propie` VALUES(324, 'Tecnólogos en Instalaciones Hidrosanitarias');
+INSERT INTO `profesion_propie` VALUES(325, 'Tecnólogos en Instrumentación Industrial');
+INSERT INTO `profesion_propie` VALUES(326, 'Tecnólogos en instumentación y Control de Producto');
+INSERT INTO `profesion_propie` VALUES(327, 'Tecnólogos en Mantenimiento de Equipos Biomedicos');
+INSERT INTO `profesion_propie` VALUES(328, 'Tecnólogos en Mantenimiento Industrial');
+INSERT INTO `profesion_propie` VALUES(329, 'Tecnólogos en Mecánica Industrial');
+INSERT INTO `profesion_propie` VALUES(330, 'Tecnólogos en Mercadeo');
+INSERT INTO `profesion_propie` VALUES(331, 'Ventas y Publicidad"');
+INSERT INTO `profesion_propie` VALUES(332, 'Tecnólogos en Obras Civiles');
+INSERT INTO `profesion_propie` VALUES(333, 'Tecnólogos en preescolar');
+INSERT INTO `profesion_propie` VALUES(334, 'Tecnólogos en Química');
+INSERT INTO `profesion_propie` VALUES(335, 'Tecnólogos en radiocomunicaciones');
+INSERT INTO `profesion_propie` VALUES(336, 'Tecnólogos en Salud Ocupacional');
+INSERT INTO `profesion_propie` VALUES(337, 'Tecnólogos en Sistemas');
+INSERT INTO `profesion_propie` VALUES(338, 'Tecnólogos en Sistemas de Información');
+INSERT INTO `profesion_propie` VALUES(339, 'Tecnólogos en Sistemas Informáticos');
+INSERT INTO `profesion_propie` VALUES(340, 'Técnologo en Sistemas y Telecomunicaciones');
+INSERT INTO `profesion_propie` VALUES(341, 'Tecnólogos en Torno y CNC');
+INSERT INTO `profesion_propie` VALUES(342, 'Tecnólogos Especialista en Administración Pública');
+INSERT INTO `profesion_propie` VALUES(343, 'Tecnólogos Forestales');
+INSERT INTO `profesion_propie` VALUES(344, 'Tecnólogos Industriales');
+INSERT INTO `profesion_propie` VALUES(345, 'Tecnólogos Mecánicos');
+INSERT INTO `profesion_propie` VALUES(346, 'Tecnólogos Mecánicos Automotrices');
+INSERT INTO `profesion_propie` VALUES(347, 'Tecnólogos Mecánicos Diesel');
+INSERT INTO `profesion_propie` VALUES(348, 'Tecnólogos Mecánicos Industriales');
+INSERT INTO `profesion_propie` VALUES(349, 'Técnologos Profesionales en Mecánica Industrial');
+INSERT INTO `profesion_propie` VALUES(350, 'Tecnólogos Químicos');
+INSERT INTO `profesion_propie` VALUES(351, 'Tecnólogos Químicos en Productos Vegetales');
+INSERT INTO `profesion_propie` VALUES(352, 'Tecnólogos Textiles');
+INSERT INTO `profesion_propie` VALUES(353, 'Tecnólogos Zootecnistas');
+INSERT INTO `profesion_propie` VALUES(354, 'Terapeutas Ocupacionales');
+INSERT INTO `profesion_propie` VALUES(355, 'Terapeutas Respiratorios');
+INSERT INTO `profesion_propie` VALUES(356, 'Topógrafos');
+INSERT INTO `profesion_propie` VALUES(357, 'Torneros Industriales y Soldadores');
+INSERT INTO `profesion_propie` VALUES(358, 'Torneros Soldadores');
+INSERT INTO `profesion_propie` VALUES(359, 'Trabajadores Sociales');
+INSERT INTO `profesion_propie` VALUES(360, 'Traductores e Intérpretes Oficiales');
+INSERT INTO `profesion_propie` VALUES(361, 'Vitralistas');
+INSERT INTO `profesion_propie` VALUES(362, 'Veterinario');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prueba_especifica`
+--
+
+CREATE TABLE `prueba_especifica` (
+  `id_pru_especif` int(11) NOT NULL AUTO_INCREMENT,
+  `id_list_prueb_especif` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  `estado_prueb_especif` varchar(7) DEFAULT NULL,
+  `comentario_prueb_especif` text,
+  `lado_prueb_especif` varchar(2) DEFAULT NULL,
+  PRIMARY KEY (`id_pru_especif`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_prueb_especif` (`id_list_prueb_especif`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+
+--
+-- Dumping data for table `prueba_especifica`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `raza`
+--
+
+CREATE TABLE `raza` (
+  `id_raza` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_raza` varchar(30) NOT NULL,
+  `id_esp` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_raza`),
+  UNIQUE KEY `id_raza` (`id_raza`),
+  KEY `id_esp` (`id_esp`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `raza`
+--
+
+INSERT INTO `raza` VALUES(1, 'AFGANO', 1);
+INSERT INTO `raza` VALUES(2, 'COLLIE', 1);
+INSERT INTO `raza` VALUES(3, 'CEBU', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reaccion_postular`
+--
+
+CREATE TABLE `reaccion_postular` (
+  `id_reaccion_postural` int(11) NOT NULL AUTO_INCREMENT,
+  `id_list_reaccion_pos` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  `estado_reac_pos` varchar(7) DEFAULT NULL,
+  `comentario_reac_pos` text,
+  PRIMARY KEY (`id_reaccion_postural`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_reaccion_pos` (`id_list_reaccion_pos`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+
+--
+-- Dumping data for table `reaccion_postular`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reflejo_espinal`
+--
+
+CREATE TABLE `reflejo_espinal` (
+  `id_reflejo_espinal` int(11) NOT NULL AUTO_INCREMENT,
+  `id_hist` int(11) NOT NULL,
+  `id_list_reflejo_espinal` int(11) NOT NULL,
+  `estado_reflejo_espinal` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`id_reflejo_espinal`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_reflejo_espinal` (`id_list_reflejo_espinal`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+
+--
+-- Dumping data for table `reflejo_espinal`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reflejo_postural`
+--
+
+CREATE TABLE `reflejo_postural` (
+  `id_reflejo_postural` int(11) NOT NULL AUTO_INCREMENT,
+  `id_list_ref_postural` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  `estado_reflejo_postural` varchar(7) DEFAULT NULL,
+  `comentario_reflejo_postural` text,
+  `lado_reflejo_postural` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`id_reflejo_postural`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_ref_postural` (`id_list_ref_postural`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+
+--
+-- Dumping data for table `reflejo_postural`
+--
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `region_precordial`
+--
+
+CREATE TABLE `region_precordial` (
+  `id_region_precordial` int(11) NOT NULL AUTO_INCREMENT,
+  `id_list_region_precordial` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  `estado_region_precordial` varchar(7) DEFAULT NULL,
+  `comentario_region_precordial` text,
+  PRIMARY KEY (`id_region_precordial`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_region_precordial` (`id_list_region_precordial`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `region_precordial`
+--
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roll`
+--
+
+CREATE TABLE `roll` (
+  `id_roll` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_roll` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_roll`),
+  UNIQUE KEY `id_roll` (`id_roll`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `roll`
+--
+
+INSERT INTO `roll` VALUES(1, 'administrador');
+INSERT INTO `roll` VALUES(2, 'Veterinario');
+INSERT INTO `roll` VALUES(3, 'Propietario de animal');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `signo_digestivo`
+--
+
+CREATE TABLE `signo_digestivo` (
+  `id_signo_digestivo` int(11) NOT NULL AUTO_INCREMENT,
+  `estado_signo_digestivo` varchar(7) DEFAULT NULL,
+  `comentario_signo_digestivo` text,
+  `id_list_signo_digestivo` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  PRIMARY KEY (`id_signo_digestivo`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_signo_digestivo` (`id_list_signo_digestivo`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+
+--
+-- Dumping data for table `signo_digestivo`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sintoma_respiratorio`
+--
+
+CREATE TABLE `sintoma_respiratorio` (
+  `id_sintoma_respiratorio` int(11) NOT NULL AUTO_INCREMENT,
+  `estado_sintoma_respiratorio` varchar(2) DEFAULT NULL,
+  `comentario_sintoma_respiratorio` text,
+  `id_hist` int(11) NOT NULL,
+  `id_list_sintoma_respiratorio` int(11) NOT NULL,
+  PRIMARY KEY (`id_sintoma_respiratorio`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_sintoma_respiratorio` (`id_list_sintoma_respiratorio`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=103 ;
+
+--
+-- Dumping data for table `sintoma_respiratorio`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sistema_digestivo`
+--
+
+CREATE TABLE `sistema_digestivo` (
+  `id_sistema_digestivo` int(11) NOT NULL AUTO_INCREMENT,
+  `estado_sistema_digestivo` varchar(7) DEFAULT NULL,
+  `comentario_sistema_digestivo` text,
+  `id_list_sistema_digestivo` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  PRIMARY KEY (`id_sistema_digestivo`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_sistema_digestivo` (`id_list_sistema_digestivo`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
+
+--
+-- Dumping data for table `sistema_digestivo`
+--
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sistema_genital`
+--
+
+CREATE TABLE `sistema_genital` (
+  `id_sistema_genital` int(11) NOT NULL AUTO_INCREMENT,
+  `estado_sistema_genital` varchar(7) DEFAULT NULL,
+  `comentario_sistema_genital` text,
+  `id_list_sistema_genital_hembra` int(11) NOT NULL,
+  `id_list_sistema_genital_macho` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  PRIMARY KEY (`id_sistema_genital`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_sistema_genital_macho` (`id_list_sistema_genital_macho`),
+  KEY `id_list_sistema_genital_hembra` (`id_list_sistema_genital_hembra`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
+
+--
+-- Dumping data for table `sistema_genital`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sistema_urinario`
+--
+
+CREATE TABLE `sistema_urinario` (
+  `id_sistema_urinario` int(11) NOT NULL AUTO_INCREMENT,
+  `estado_sistema_urinario` varchar(7) DEFAULT NULL,
+  `comentario_sistema_urinario` text,
+  `id_list_sistema_urinario` int(11) NOT NULL,
+  `id_hist` int(11) NOT NULL,
+  PRIMARY KEY (`id_sistema_urinario`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_sistema_urinario` (`id_list_sistema_urinario`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+
+--
+-- Dumping data for table `sistema_urinario`
+--
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sonido_respiratorio`
+--
+
+CREATE TABLE `sonido_respiratorio` (
+  `id_via_respiratoria` int(11) NOT NULL AUTO_INCREMENT,
+  `lado_sonido_respiratorio` varchar(5) DEFAULT NULL,
+  `estado_sonido_respiratorio` varchar(7) DEFAULT NULL,
+  `comentario_sonido_respiratorio` text,
+  `id_hist` int(11) NOT NULL,
+  `id_list_sonido_respiratorio` int(11) NOT NULL,
+  PRIMARY KEY (`id_via_respiratoria`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_sonido_respiratorio` (`id_list_sonido_respiratorio`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=93 ;
+
+--
+-- Dumping data for table `sonido_respiratorio`
+--
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usu` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_usu` varchar(30) NOT NULL,
+  `apellido1_usu` varchar(20) NOT NULL,
+  `apellido2_usu` varchar(20) NOT NULL,
+  `direccion_usu` varchar(50) DEFAULT NULL,
+  `telefono_usu` varchar(25) DEFAULT NULL,
+  `edad_usu` int(11) NOT NULL,
+  `cedula_usu` varchar(20) NOT NULL DEFAULT '0',
+  `pass_usu` varchar(15) DEFAULT NULL,
+  `correo_usu` varchar(35) DEFAULT NULL,
+  `fecha_registro_usu` date DEFAULT NULL,
+  `id_roll` int(11) NOT NULL,
+  `id_profesion_propie` int(11) NOT NULL,
+  `tipo_id_usu` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id_usu`),
+  UNIQUE KEY `id_usu` (`id_usu`),
+  KEY `id_roll` (`id_roll`),
+  KEY `id_profesion_propie` (`id_profesion_propie`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `usuario`
+--
+
+INSERT INTO `usuario` VALUES(1, 'FRANK ', 'SALAMANCA', 'LOPEZ', 'calle 44 norte Nº 17-86', '314558777', 21, '1', 'sena', 'frank@sespa.com', NULL, 1, 1, 'C.C');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `via_aerea`
+--
+
+CREATE TABLE `via_aerea` (
+  `id_via_aerea` int(11) NOT NULL AUTO_INCREMENT,
+  `id_hist` int(11) NOT NULL,
+  `id_list_via_aerea` int(11) NOT NULL,
+  `lado_via_aerea` varchar(5) DEFAULT NULL,
+  `estado_via_aerea` varchar(7) DEFAULT NULL,
+  `comentario_via_aerea` text,
+  PRIMARY KEY (`id_via_aerea`),
+  KEY `id_hist` (`id_hist`),
+  KEY `id_list_via_aerea` (`id_list_via_aerea`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=53 ;
+
+--
+-- Dumping data for table `via_aerea`
+--
+     
