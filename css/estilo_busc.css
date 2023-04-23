@@ -1,0 +1,44 @@
+.buscar
+{
+border:1px solid #71b00c;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+}
+
+.buscar select:hover
+{
+background-color:#ECF5F1 ;
+font-size:13px;
+border:1px solid #71b00c;
+cursor: pointer;
+}
+
+.boton1
+{
+display: block; 
+font-family: Arial;
+background-color:#71b00c ;
+border: 0px;
+color:#ffffff;
+width:110px;
+font-size:15px;
+height:30px;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+}
+
+.boton1:hover
+{
+display: block; 
+font-family: Arial;
+border: 0px;
+width:110px;
+height:30px;
+color:#ffffff;
+cursor:pointer;
+background-color:#83C021 ;
+font-size:15px;
+cursor: pointer;
+}

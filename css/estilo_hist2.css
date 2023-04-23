@@ -1,0 +1,107 @@
+.tabla select:hover
+{
+background-color:#ECF5F1 ;
+font-size:13px;
+border:1px solid #71b00c;
+cursor: pointer;
+}
+
+.tabla
+{
+border:1px solid;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+width: 600px;
+border-collapse:collapse;
+}
+
+.tabla  td
+{
+background-color:#F4F7F7 ;
+width:100px;
+border:1px solid;
+text-align: center;
+
+}
+
+.tabla  th
+{
+background-color:#46996E ;
+font-size:12px;
+width:300px;
+border:1px solid #ffffff ;
+}
+.tabla   td:hover
+{
+background-color:#A2D599 ;
+}
+
+.tabla1 select:hover
+{
+background-color:#ECF5F1 ;
+font-size:13px;
+border:1px solid #71b00c;
+cursor: pointer;
+}
+
+.tabla1
+{
+border:1px solid;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+width: 1200px;
+border-collapse:collapse;
+}
+
+.tabla1  td
+{
+background-color:#F4F7F7 ;
+width:300px;
+border:1px solid;
+text-align: center;
+
+}
+
+.tabla1  th
+{
+background-color:#46996E ;
+font-size:12px;
+width:300px;
+border:1px solid #ffffff ;
+}
+.tabla1  td:hover
+{
+background-color:#A2D599 ;
+}
+.boton2
+{
+display: block; 
+font-family: "Arial";
+background-color:#71b00c ;
+border: 0px;
+color:#ffffff;
+width:110px;
+font-size:15px;
+height:60px;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+}
+
+.boton2:hover
+{
+display: block; 
+font-family: "Arial";
+border: 0px;
+width:110px;
+height:60px;
+color:#ffffff;
+cursor:pointer;
+background-color:#83C021 ;
+font-size:15px;
+cursor: pointer;
+}

@@ -1,0 +1,148 @@
+/* CSS Document */
+.inicio
+{
+border:2px solid #C3C6C1;
+border-radius:8px;
+-moz-border-radius:8px;
+-webkit-border-radius:8px;
+}
+
+
+body {
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+	font-size: 62.5%;
+	color: #666666;
+	background-color: #FFFFFF;
+	margin-top: 2px;
+	margin-left: 1px;
+	margin-right: 1px;
+	margin-bottom: 0px;
+}
+
+.acord {
+	position:absolute;
+	width:300px;
+	height:500px;
+}
+
+.POSICION_LOGO {
+	position:absolute;
+	width:100px;
+	height:200px;
+	margin-left:auto;
+	right: auto;
+}
+
+
+label, input{
+display:block;
+}
+
+
+label{
+color: #238276;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+input{
+width:80%;
+margin-bottom:5px;
+padding:5px;
+}
+
+.boton{
+background-color:#71b00c ;
+border: 0px;
+color: #ffffff;
+font-size:15px;
+border-radius:8px;
+-moz-border-radius:8px;
+-webkit-border-radius:8px;
+ display: block;
+ width:110px;
+height:30px;
+ }
+
+button:hover
+{
+width:110px;
+height:30px;
+border: 0px;
+color:#ffffff;
+cursor:pointer;
+background-color:#83C021 ;
+font-size:15px;
+border-radius:8px;
+-moz-border-radius:8px;
+-webkit-border-radius:8px;
+ display: block;
+}
+
+input:focus{
+background: #FFFFFF;
+color:#fc7323;
+border-top:3px solid #000000;
+border-left:3px solid #000000;
+border-right:1px solid #000000;
+border-bottom:1px solid #000000;
+padding:10px;
+}
+
+input:hover{
+background-color: #FFFFFF;
+}
+
+fieldset{
+width:20%;
+margin-left:auto;
+}
+
+
+fieldset legend{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+color:#fc7323;
+font-weight:bold;
+
+}
+
+#borde{
+border:3px solid;
+border-radius:8px;
+-moz-border-radius:8px;
+-webkit-border-radius:8px;
+
+}
+
+#boton{
+width:30%;
+margin:auto;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+img{
+width:100%;
+}
+
+#banner{
+width:100%;
+}
+
+.olvido_contra {
+font-size: 9px;
+color:#fc7323;
+}
+#pie{
+margin:auto;
+width:400px;
+height:100px;
+color: #238276;
+text-align:center;
+}
+.vincul{
+color:#238276;
+}
+
+
+

@@ -1,0 +1,192 @@
+body{
+	
+	font-family: Lucida Grande,Tahoma,Arial,Verdana,Sans-Serif;
+	
+	font-size: 12px;
+}
+.pie_pagina
+{
+font-size: 12px ;
+font-family: Lucida Grande,Tahoma,Arial,Verdana,Sans-Serif;
+margin:auto ;
+color:#408080;
+text-align:center;
+width:400px;
+position:relative;
+height:40px;
+}
+.vincul{
+font-size: 12px ;
+font-family: Lucida Grande,Tahoma,Arial,Verdana,Sans-Serif;
+color:#408080;
+text-decoration:none;
+}
+
+
+.td_titulo{
+font-family: Arial;
+font-size: 13px ;
+font-weight:bold;
+
+}
+
+.texto{
+border: 2px solid #408080;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+margin:auto;
+font-family: Lucida Grande,arial;
+font-weight:bold;
+width:350px;
+line-height: 1.2em;
+text-align:justify;
+padding: 15px;
+}
+
+#register-div{
+
+	height: 710px;
+	margin:auto;
+	
+	padding: 20px;
+	
+	width: 500px;
+	
+	line-height: 1.3em;
+	font-family: 'Lucida Grande',Tahoma,Arial,Verdana,Sans-Serif;
+	
+	font-size: 12px;
+}
+
+
+#register-div2{
+
+	margin:auto;
+	
+	padding: 20px;
+	
+	width: 500px;
+	
+	line-height: 1.3em;
+	font-family: 'Lucida Grande',Tahoma,Arial,Verdana,Sans-Serif;
+	
+	font-size: 12px;
+	
+}
+#register-div3{
+
+	margin:auto;
+	
+	line-height: 1.3em;
+	
+	padding: 20px;
+	
+	width: 600px;
+	
+	float:left;
+	
+}
+
+
+#register-div label{
+
+	display: block;
+	
+	font-weight: bold;
+	
+	margin-bottom: 5px;
+	
+}
+
+
+	
+#register-div span {
+
+	display:inline; 
+	
+	color: blue;
+
+}
+
+#register-div .correcto{
+
+	color: green;
+	
+}
+
+#register-div .incorrecto{
+
+	color: red;
+	
+}
+
+#register-div .cargando{
+	
+	color: gray;
+}
+
+#regis{
+font-weight:bold;
+color:#FF8000;
+}
+
+#fiel{
+
+
+border: 2px solid #408080;
+
+border-radius: 5px;
+
+-moz-border-radius: 5px;
+
+-webkit-border-radius: 5px;
+}
+
+.boton{
+width:30%;
+
+margin: 0px 0px 0px 125px;
+
+font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+.estilotextarea {
+width:400px;
+height:100px;
+border: 2px solid #FFCC66;
+} 
+.estilotextarea1 {
+width:355px;
+height:80px;
+border: 2px solid #FFCC66;
+} 
+.estilotextarea2 {
+width:500px;
+height:35px;
+border: 2px solid #FFCC66;
+} 
+
+.tabla_hist  td:hover
+{
+background-color:#46996E ;
+}
+.tabla_hist  th
+{
+background-color:#46996E ;
+}
+
+.tabla_hist
+{
+border:1px solid;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+.tabla select:hover
+{
+background-color:#ECF5F1 ;
+font-size:13px;
+border:1px solid #71b00c;
+cursor: pointer;
+}

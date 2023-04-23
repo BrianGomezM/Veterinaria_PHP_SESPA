@@ -1,0 +1,35 @@
+.tabla
+{
+border:1px solid;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+width: 500px;
+border-collapse:collapse;
+}
+
+.tabla  td
+{
+width:100px;
+border:1px solid;
+text-align: center;
+}
+
+.tabla  td:hover
+{
+background-color:#46996E ;
+}
+
+.tabla  th
+{
+background-color:#46996E ;
+}
+
+.tabla select:hover
+{
+background-color:#ECF5F1 ;
+font-size:13px;
+border:1px solid #71b00c;
+cursor: pointer;
+}
